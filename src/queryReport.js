@@ -1,17 +1,12 @@
+import { format } from "date-fns";
+
 export const queryReport = (props) => {
     const {
         viewID,
+        startDate,
+        endDate
     } = props;
 
-    const requestDimensions = (dimensions) => {
-        let result = [];
-        dimensions.forEach((item) => {
-            result.push({
-                name: item,
-            });
-        });
-        return result;
-    };
     return window.gapi.client.request({
         path: "/v4/reports:batchGet",
         root: "https://analyticsreporting.googleapis.com/",
@@ -22,8 +17,8 @@ export const queryReport = (props) => {
                     viewId: viewID,
                     dateRanges: [
                         {
-                            startDate: "7daysAgo",
-                            endDate: "today",
+                            startDate: format(new Date(startDate), "yyyy-MM-dd"),
+                            endDate: format(new Date(endDate), "yyyy-MM-dd"),
                         },
                     ],
                     metrics: [

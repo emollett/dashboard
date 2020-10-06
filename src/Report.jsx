@@ -23,11 +23,13 @@ const Report = (props) => {
     useEffect(() => {
         const request = {
             viewID: props.viewID,
+            startDate: props.startDate,
+            endDate: props.endDate,
         };
         queryReport(request)
             .then((resp) => displayResults(resp))
             .catch((error) => console.error(error));
-    }, []);
+    }, [props.startDate, props.endDate]);
 
     const Tile = styled.div`
         background-color: #fafafa;
