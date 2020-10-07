@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { queryReport } from "./queryReport";
 import styled from 'styled-components'
+import { Link } from "react-router-dom";
 
-const Report = (props) => {
+const DashboardTile = ({
+    site: {siteName, viewID, route},
+    startDate,
+    endDate
+}) => {
     const [data, setData] = useState([]);
     const [total, setTotal] = useState([])
 
@@ -22,14 +27,14 @@ const Report = (props) => {
 
     useEffect(() => {
         const request = {
-            viewID: props.viewID,
-            startDate: props.startDate,
-            endDate: props.endDate,
+            viewID: viewID,
+            startDate: startDate,
+            endDate: endDate,
         };
         queryReport(request)
             .then((resp) => displayResults(resp))
             .catch((error) => console.error(error));
-    }, [props.startDate, props.endDate]);
+    }, [startDate, endDate]);
 
     const Tile = styled.div`
         background-color: #fafafa;
@@ -41,7 +46,7 @@ const Report = (props) => {
 
     return (
         <Tile>
-            <h2>{props.siteName}</h2>
+            <Link to={`/${route}`}><h2>{siteName}</h2></Link>
             <p>Total - {total} visits</p>
             {data.map((row) => (
                 <div key={row.date}>{`${row.date}: ${row.visits} visits`}</div>
@@ -50,4 +55,4 @@ const Report = (props) => {
     )
 };
 
-export default Report;
+export default DashboardTile;
