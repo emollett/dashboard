@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import { renderButton, checkSignedIn } from "./utils";
 import Report from './Report.jsx';
 import styled from 'styled-components'
@@ -33,15 +32,19 @@ function App() {
         window.gapi.load("auth2", init);
     });
 
+    const App = styled.div`
+        text-align: center;
+    `;
+
     const Tiles = styled.div`
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
         margin: 1em;
     `;
 
     return (
-        <div className="App">
+        <App>
             <h1>Stakeholders team's dashboard</h1>
             {!isSignedIn ? (
                 <div id="signin-button"></div>
@@ -68,11 +71,10 @@ function App() {
                         minDate={startDate}
                         dateFormat="dd MMM yyyy"
                     /></label>
-
                     <Tiles>
                         <Report siteName={"Comment collection"} viewID={process.env.REACT_APP_VIEW_ID_1} startDate={startDate} endDate={endDate}/>
                         <Report siteName={"UKPS"} viewID={process.env.REACT_APP_VIEW_ID_2} startDate={startDate} endDate={endDate}/>
-                        <Report siteName={"META"} viewID={process.env.REACT_APP_VIEW_ID_1} startDate={startDate} endDate={endDate}/>
+                        <Report siteName={"META"} viewID="{process.env.REACT_APP_VIEW_ID_1}" startDate={startDate} endDate={endDate}/>
                         <Report siteName={"Healthtech Connect"} viewID={process.env.REACT_APP_VIEW_ID_2} startDate={startDate} endDate={endDate}/>
                         <Report siteName={"NICE Docs"} viewID={process.env.REACT_APP_VIEW_ID_1} startDate={startDate} endDate={endDate}/>
                         <Report siteName={"NICE Accounts - new"} viewID={process.env.REACT_APP_VIEW_ID_2} startDate={startDate} endDate={endDate}/>
@@ -80,7 +82,7 @@ function App() {
                     </Tiles>
                 </>
             )}
-        </div>
+        </App>
     );
 }
 
