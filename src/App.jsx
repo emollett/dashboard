@@ -10,6 +10,10 @@ import {
     Link
 } from "react-router-dom";
 
+const Container = styled.div`
+        text-align: center;
+    `;
+
 function App() {
     const [isSignedIn, setIsSignedIn] = useState(false);
 
@@ -44,12 +48,8 @@ function App() {
         window.gapi.load("auth2", init);
     });
 
-    const App = styled.div`
-        text-align: center;
-    `;
-
     return (
-        <App>
+        <Container>
             <Router>
                 <Link to="/"><h1>Stakeholders team dashboard</h1></Link>
                 {!isSignedIn ? (
@@ -61,7 +61,7 @@ function App() {
                     </>
                 )}
             </Router>
-        </App>
+        </Container>
     );
 }
 

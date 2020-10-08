@@ -5,18 +5,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import addDays from 'date-fns/addDays';
 
-function Dashboard(props) {
-    const [startDate, setStartDate] = useState(addDays(new Date(), -10));
-    const [endDate, setEndDate] = useState(new Date());
-
-    const sites = props.sites
-
-    const Tiles = styled.div`
+const Tiles = styled.div`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         margin: 1em;
     `;
+
+function Dashboard({sites}) {
+    const [startDate, setStartDate] = useState(addDays(new Date(), -30));
+    const [endDate, setEndDate] = useState(new Date());
 
     return (
                 <>
@@ -43,7 +41,7 @@ function Dashboard(props) {
                         /></label>
                     <Tiles>
                         {sites.map((site) => (
-                            <DashboardTile site={site} startDate={startDate} endDate={endDate}/>
+                            <DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate}/>
                         ))}
                     </Tiles>
                 </>
