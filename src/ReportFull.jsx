@@ -43,7 +43,7 @@ const ReportTile = ({sites}) => {
     return (
         <>
             <h2>Full report for {site.siteName}</h2>
-            <label>Start date
+            <label>Start date&nbsp;
                 <DatePicker
                     selected={startDate}
                     onChange={date => setStartDate(date)}
@@ -53,8 +53,8 @@ const ReportTile = ({sites}) => {
                     maxDate={new Date()}
                     dateFormat="dd MMM yyyy"
                 /></label>
-            &nbsp;
-            <label>End date
+            &nbsp;&nbsp;
+            <label>End date&nbsp;
                 <DatePicker
                     selected={endDate}
                     onChange={date => setEndDate(date)}

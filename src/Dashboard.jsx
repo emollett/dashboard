@@ -18,7 +18,7 @@ function Dashboard({sites}) {
 
     return (
                 <>
-                    <label>Start date
+                    <label>Start date&nbsp;
                         <DatePicker
                             selected={startDate}
                             onChange={date => setStartDate(date)}
@@ -28,8 +28,8 @@ function Dashboard({sites}) {
                             maxDate={new Date()}
                             dateFormat="dd MMM yyyy"
                         /></label>
-                    &nbsp;
-                    <label>End date
+                    &nbsp;&nbsp;
+                    <label>End date&nbsp;
                         <DatePicker
                             selected={endDate}
                             onChange={date => setEndDate(date)}

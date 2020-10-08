@@ -1,0 +1,52 @@
+{
+  "reports": [
+    {
+      "columnHeader": {
+        "metricHeader": {
+          "metricHeaderEntries": [
+            {
+              "name": "ga:users",
+              "type": "INTEGER"
+            }
+          ]
+        }
+      },
+      "data": {
+        "isDataGolden": true,
+        "maximums": [
+          {
+            "values": [
+              "98"
+            ]
+          }
+        ],
+        "minimums": [
+          {
+            "values": [
+              "98"
+            ]
+          }
+        ],
+        "rowCount": 1,
+        "rows": [
+          {
+            "metrics": [
+              {
+                "values": [
+                  "98"
+                ]
+              }
+            ]
+          }
+        ],
+        "totals": [
+          {
+            "values": [
+              "98"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
