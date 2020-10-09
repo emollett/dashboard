@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
-import styled from 'styled-components'
 import { Link } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import "chart.js";
 import { queryReport } from "./queryReport";
 import { formatDate } from "./utils";
+import { ChartWrapper } from "./utils";
 
-const ChartWrapper = styled.div`
-    width: 23em;
-    margin: 0 auto;
-`;
-
-const DashboardTile = ({
+const UsersTile = ({
         site: {siteName, viewID, route},
         startDate,
         endDate,
@@ -117,4 +112,4 @@ const DashboardTile = ({
     )
 };
 
-export default DashboardTile;
+export default UsersTile;

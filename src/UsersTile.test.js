@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import ReactDOM from "react-dom";
-import DashboardTile from './DashboardTile.jsx';
+import UsersTile from './UsersTile.jsx';
 import {sites} from './dashboardConfig.js';
 import { BrowserRouter as Router } from "react-router-dom";
 import addDays from "date-fns/addDays";
@@ -20,7 +20,7 @@ const endDate = new Date()
 
 // it("renders without crashing", () => {
 //     const div = document.createElement("div");
-//     ReactDOM.render(<Router><DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate}/></Router>, div);
+//     ReactDOM.render(<Router><UsersTile key={site.route} site={site} startDate={startDate} endDate={endDate}/></Router>, div);
 //     ReactDOM.unmountComponentAtNode(div);
 // });
 

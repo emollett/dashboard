@@ -1,4 +1,5 @@
 import {format} from "date-fns";
+import styled from "styled-components";
 
 const initAuth = () => {
     return window.gapi.auth2.init({
@@ -69,3 +70,8 @@ export const colors = [
     "#a2bdc1",
     "#314c60",
 ];
+
+export const ChartWrapper = styled.div`
+    width: 23em;
+    margin: 0 auto;
+`;

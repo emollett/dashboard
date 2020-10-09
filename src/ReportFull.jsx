@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import addDays from "date-fns/addDays";
 import styled from "styled-components";
-import DashboardTile from "./DashboardTile";
+import UsersTile from "./UsersTile";
 import BrowserTile from "./BrowserTile";
 import SourceTile from "./SourceTile";
 
@@ -92,14 +92,18 @@ const ReportTile = ({sites}) => {
                     ))}
                 </Tile>
                 <Tile>
-                    <DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
+                    <UsersTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
                 </Tile>
-                <Tile>
-                    <BrowserTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
-                </Tile>
-                <Tile>
-                    <SourceTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
-                </Tile>
+                {site.browserTile && (
+                    <Tile>
+                        <BrowserTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
+                    </Tile>
+                )}
+                {site.sourceTile && (
+                    <Tile>
+                        <SourceTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
+                    </Tile>
+                )}
             </Tiles>
         </>
     )

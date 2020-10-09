@@ -4,7 +4,7 @@ import Dashboard from './Dashboard.jsx';
 import {sites} from './dashboardConfig.js';
 import { BrowserRouter as Router } from "react-router-dom";
 
-jest.mock('./DashboardTile.jsx', () => {
+jest.mock('./UsersTile.jsx', () => {
     return function DashboardTile(props) {
         return (
             <>

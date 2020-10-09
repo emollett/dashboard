@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DashboardTile from './DashboardTile.jsx';
+import UsersTile from './UsersTile.jsx';
 import styled from 'styled-components'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -49,7 +49,7 @@ function Dashboard({sites}) {
                         /></label>
                     <Tiles>
                         {sites.map((site) => (
-                            <Tile><DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate} title={true}/></Tile>
+                            <Tile><UsersTile key={site.route} site={site} startDate={startDate} endDate={endDate} title={true}/></Tile>
                         ))}
                     </Tiles>
                 </>

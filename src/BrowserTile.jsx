@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import { queryReport } from "./queryReport";
-import { colors } from "./utils";
+import { colors, ChartWrapper } from "./utils";
 
 const BrowsersTile = ({
-        site: {siteName, viewID, route},
+        site: {viewID},
         startDate,
         endDate
     }) => {
@@ -75,7 +75,7 @@ const BrowsersTile = ({
         <>
             <h3>Browser usage</h3>
             {data && (
-                <Pie data={chartData} options={options} width={100} height={100} />
+                <ChartWrapper><Pie data={chartData} options={options} width={300} height={300} /></ChartWrapper>
             )}
         </>
     );
