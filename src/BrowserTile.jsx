@@ -82,8 +82,9 @@ const BrowsersTile = ({
 
     return (
         <>
+            <h3>Browser usage</h3>
             {data && (
-                <Pie data={chartData} options={options} width={300} height={300} />
+                <Pie data={chartData} options={options} width={100} height={100} />
             )}
         </>
     );

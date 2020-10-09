@@ -85,7 +85,7 @@ const ReportTile = ({sites}) => {
                 /></label>
             <Tiles>
                 <Tile>
-                    <p>Total - {total} visits</p>
+                    <h3>Total - {total} visits</h3>
                     {data.map((row) => (
                         <div key={row.date}>{`${row.date}: ${row.visits} visits`}</div>
                     ))}

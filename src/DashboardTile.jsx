@@ -6,14 +6,6 @@ import "chart.js";
 import { format } from "date-fns";
 import { queryReport } from "./queryReport";
 
-const Tile = styled.div`
-     background-color: #fafafa;
-     flex: 0 1 25em;
-     margin: 1em;
-     box-shadow: 0.1em 0.1em 0.3em #e9e9e9;
-     padding-bottom: 0.5em;
-    `;
-
 const ChartWrapper = styled.div`
     width: 23em;
     margin: 0 auto;
@@ -97,11 +89,7 @@ const DashboardTile = ({
         },
         maintainAspectRatio: false,
         legend: {
-            display: true,
-            align: "end",
-            labels: {
-                boxWidth: 0,
-            }
+            display: false,
         },
         plugins: {
             datalabels: {
@@ -125,18 +113,18 @@ const DashboardTile = ({
     }, [viewID, startDate, endDate]);
 
     return (
-        <Tile>
+        <>
             {title && (
                 <Link to={`/${route}`}><h2>{siteName}</h2></Link>
             )}
-
+            {!title && (<h3>Daily users</h3>)}
             {data && (
                 <ChartWrapper>
                     <Line data={chartData} options={options} width={100} height={250} />
                 </ChartWrapper>
             )}
 
-        </Tile>
+        </>
     )
 };
 

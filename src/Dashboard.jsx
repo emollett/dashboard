@@ -12,6 +12,14 @@ const Tiles = styled.div`
         margin: 1em;
     `;
 
+const Tile = styled.div`
+     background-color: #fafafa;
+     flex: 0 1 25em;
+     margin: 1em;
+     box-shadow: 0.1em 0.1em 0.3em #e9e9e9;
+     padding-bottom: 0.5em;
+    `;
+
 function Dashboard({sites}) {
     const [startDate, setStartDate] = useState(addDays(new Date(), -30));
     const [endDate, setEndDate] = useState(new Date());
@@ -41,7 +49,7 @@ function Dashboard({sites}) {
                         /></label>
                     <Tiles>
                         {sites.map((site) => (
-                            <DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate} title={true}/>
+                            <Tile><DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate} title={true}/></Tile>
                         ))}
                     </Tiles>
                 </>
