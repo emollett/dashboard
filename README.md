@@ -1,7 +1,9 @@
 ## Google analytics dashboard
 
 Created for the NICE Stakeholders team spike week.
-Borrowed heavily from [https://github.com/KaterinaLupacheva/react-google-analytics-dashboard](https://github.com/KaterinaLupacheva/react-google-analytics-dashboard)
+
+Borrowed heavily from [github.com/KaterinaLupacheva](https://github.com/KaterinaLupacheva/react-google-analytics-dashboard)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Set up

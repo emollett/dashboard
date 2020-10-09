@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import { queryReport } from "./queryReport";
+import { colors } from "./utils";
 
 const BrowsersTile = ({
         site: {siteName, viewID, route},
@@ -13,16 +14,6 @@ const BrowsersTile = ({
         colors: [],
     };
     const [data, setdata] = useState(INITIAL_STATE);
-    const colors = [
-        "#004650",
-        "#a2bdc1",
-        "#451551",
-        "#517489",
-        "#0e0e0e",
-        "#393939",
-        "#a2bdc1",
-        "#314c60",
-    ];
 
     const displayResults = (response) => {
         const queryResult = response.result.reports[0].data.rows;
@@ -69,7 +60,7 @@ const BrowsersTile = ({
             viewID: viewID,
             startDate: startDate,
             endDate: endDate,
-            dimensions: "ga:browser",
+            dimensions: ["ga:browser"],
         };
         setTimeout(
             () =>

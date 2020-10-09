@@ -6,6 +6,7 @@ import addDays from "date-fns/addDays";
 import styled from "styled-components";
 import DashboardTile from "./DashboardTile";
 import BrowserTile from "./BrowserTile";
+import SourceTile from "./SourceTile";
 
 const Tiles = styled.div`
         display: flex;
@@ -52,7 +53,7 @@ const ReportTile = ({sites}) => {
             viewID: site.viewID,
             startDate: startDate,
             endDate: endDate,
-            dimensions: "ga:date",
+            dimensions: ["ga:date"],
         };
         queryReport(request)
             .then((resp) => displayResults(resp))
@@ -95,6 +96,9 @@ const ReportTile = ({sites}) => {
                 </Tile>
                 <Tile>
                     <BrowserTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
+                </Tile>
+                <Tile>
+                    <SourceTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
                 </Tile>
             </Tiles>
         </>

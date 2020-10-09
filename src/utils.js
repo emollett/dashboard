@@ -1,3 +1,5 @@
+import {format} from "date-fns";
+
 const initAuth = () => {
     return window.gapi.auth2.init({
         client_id: process.env.REACT_APP_CLIENT_ID,
@@ -37,3 +39,33 @@ const onSuccess = (googleUser) => {
 const onFailure = (error) => {
     console.error(error);
 };
+
+export const formatDate = (string) => {
+    return format(
+        new Date(
+            string.substring(0, 4),
+            string.substring(4, 6) - 1,
+            string.substring(6, 8)
+        ),
+        "dd/MM"
+    );
+};
+
+export const transformToDate = (string) => {
+    return new Date(
+        string.substring(0, 4),
+        string.substring(4, 6) - 1,
+        string.substring(6, 8)
+    );
+};
+
+export const colors = [
+    "#004650",
+    "#a2bdc1",
+    "#451551",
+    "#517489",
+    "#0e0e0e",
+    "#393939",
+    "#a2bdc1",
+    "#314c60",
+];

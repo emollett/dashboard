@@ -8,6 +8,16 @@ export const queryReport = (props) => {
         dimensions
     } = props;
 
+    const requestDimensions = (dimensions) => {
+        let result = [];
+        dimensions.forEach((item) => {
+            result.push({
+                name: item,
+            });
+        });
+        return result;
+    };
+
     return window.gapi.client.request({
         path: "/v4/reports:batchGet",
         root: "https://analyticsreporting.googleapis.com/",
@@ -27,11 +37,7 @@ export const queryReport = (props) => {
                             expression: "ga:users",
                         },
                     ],
-                    dimensions: [
-                        {
-                            name: dimensions,
-                        },
-                    ],
+                    dimensions: requestDimensions(dimensions),
                 },
             ],
         },

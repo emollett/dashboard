@@ -3,24 +3,13 @@ import styled from 'styled-components'
 import { Link } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import "chart.js";
-import { format } from "date-fns";
 import { queryReport } from "./queryReport";
+import { formatDate } from "./utils";
 
 const ChartWrapper = styled.div`
     width: 23em;
     margin: 0 auto;
 `;
-
-const formatDate = (string) => {
-    return format(
-        new Date(
-            string.substring(0, 4),
-            string.substring(4, 6) - 1,
-            string.substring(6, 8)
-        ),
-        "dd/MM"
-    );
-};
 
 const DashboardTile = ({
         site: {siteName, viewID, route},
@@ -105,7 +94,7 @@ const DashboardTile = ({
             viewID: viewID,
             startDate: startDate,
             endDate: endDate,
-            dimensions: "ga:date",
+            dimensions: ["ga:date"],
         };
         queryReport(request)
             .then((resp) => displayResults(resp))
