@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import "chart.js";
 import { format } from "date-fns";
-
 import { queryReport } from "./queryReport";
 
 const Tile = styled.div`
@@ -34,7 +33,8 @@ const formatDate = (string) => {
 const DashboardTile = ({
         site: {siteName, viewID, route},
         startDate,
-        endDate
+        endDate,
+        title
     }) => {
     const INITIAL_STATE = {
         labels: [],
@@ -117,6 +117,7 @@ const DashboardTile = ({
             viewID: viewID,
             startDate: startDate,
             endDate: endDate,
+            dimensions: "ga:date",
         };
         queryReport(request)
             .then((resp) => displayResults(resp))
@@ -125,7 +126,9 @@ const DashboardTile = ({
 
     return (
         <Tile>
-            <Link to={`/${route}`}><h2>{siteName}</h2></Link>
+            {title && (
+                <Link to={`/${route}`}><h2>{siteName}</h2></Link>
+            )}
 
             {data && (
                 <ChartWrapper>

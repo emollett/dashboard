@@ -4,9 +4,9 @@ import DashboardTile from './DashboardTile.jsx';
 import {sites} from './dashboardConfig.js';
 import { BrowserRouter as Router } from "react-router-dom";
 import addDays from "date-fns/addDays";
-import response from "./testReportResponse.json";
 
-jest.mock('./QueryReport.js', () => {
+jest.mock('./queryReport', () => {
+    const response = require("./testReportResponse.json");
     return {
         queryReport: jest.fn(() => {
             return response;

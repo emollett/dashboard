@@ -3,6 +3,24 @@ import { queryReport } from "./queryReport";
 import { useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import addDays from "date-fns/addDays";
+import styled from "styled-components";
+import DashboardTile from "./DashboardTile";
+import BrowserTile from "./BrowserTile";
+
+const Tiles = styled.div`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 1em;
+    `;
+
+const Tile = styled.div`
+     background-color: #fafafa;
+     flex: 0 1 25em;
+     margin: 1em;
+     box-shadow: 0.1em 0.1em 0.3em #e9e9e9;
+     padding-bottom: 0.5em;
+    `;
 
 const ReportTile = ({sites}) => {
     let { id } = useParams();
@@ -34,6 +52,7 @@ const ReportTile = ({sites}) => {
             viewID: site.viewID,
             startDate: startDate,
             endDate: endDate,
+            dimensions: "ga:date",
         };
         queryReport(request)
             .then((resp) => displayResults(resp))
@@ -64,10 +83,20 @@ const ReportTile = ({sites}) => {
                     minDate={startDate}
                     dateFormat="dd MMM yyyy"
                 /></label>
-            <p>Total - {total} visits</p>
-            {data.map((row) => (
-                <div key={row.date}>{`${row.date}: ${row.visits} visits`}</div>
-            ))}
+            <Tiles>
+                <Tile>
+                    <p>Total - {total} visits</p>
+                    {data.map((row) => (
+                        <div key={row.date}>{`${row.date}: ${row.visits} visits`}</div>
+                    ))}
+                </Tile>
+                <Tile>
+                    <DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
+                </Tile>
+                <Tile>
+                    <BrowserTile key={site.route} site={site} startDate={startDate} endDate={endDate} />
+                </Tile>
+            </Tiles>
         </>
     )
 };

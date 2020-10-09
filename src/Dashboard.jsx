@@ -41,7 +41,7 @@ function Dashboard({sites}) {
                         /></label>
                     <Tiles>
                         {sites.map((site) => (
-                            <DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate}/>
+                            <DashboardTile key={site.route} site={site} startDate={startDate} endDate={endDate} title={true}/>
                         ))}
                     </Tiles>
                 </>

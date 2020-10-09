@@ -4,7 +4,8 @@ export const queryReport = (props) => {
     const {
         viewID,
         startDate,
-        endDate
+        endDate,
+        dimensions
     } = props;
 
     return window.gapi.client.request({
@@ -28,7 +29,7 @@ export const queryReport = (props) => {
                     ],
                     dimensions: [
                         {
-                            name: "ga:date",
+                            name: dimensions,
                         },
                     ],
                 },
