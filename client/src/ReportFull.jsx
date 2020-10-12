@@ -55,10 +55,20 @@ const ReportTile = ({sites}) => {
             endDate: endDate,
             dimensions: ["ga:date"],
         };
-        queryReport(request)
-            .then((resp) => displayResults(resp))
-            .catch((error) => console.error(error));
-    }, [site.viewID, startDate, endDate]);
+        let url = `http://localhost:3001/api/graph?metric=users`;
+        fetch(url, {
+            method: 'GET',
+            mode: 'cors',
+        }).then((res) => (res.json()))
+            .then((data) => {
+                let value;
+                let formattedValue;
+                value = data.data[request.dimensions];
+                formattedValue = value;
+                setData(formattedValue);
+            });
+        console.log("The data is " + data)
+    });
 
     return (
         <>

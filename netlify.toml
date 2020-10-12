@@ -1,9 +1,0 @@
-[build.environment]
-  YARN_VERSION = "1.22.10"
-  YARN_FLAGS = "--no-ignore-optional"
-  NODE_VERSION = "14.13.0"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
